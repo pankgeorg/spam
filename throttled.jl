@@ -113,7 +113,7 @@ md"""
 
 # ╔═╡ 92dee53d-b932-4371-a307-6eece37fc798
 md"""
-## Test Thread-Safe Flux
+## Test Thread-Safe Flux 2
 """
 
 # ╔═╡ ae857899-7db3-4bd5-8280-e6128731d234
@@ -145,7 +145,7 @@ function throttle(f::Function, delay::Real)
 end
 
 # ╔═╡ 472f989d-8632-4986-bf26-d78a2c7b723a
-flush, fn = throttle(fx, 0.1) # νοπε
+flush, fn = throttle(fx, 0.1)
 
 # ╔═╡ 0ee72c37-862f-4750-9ff6-ab57f77bad5c
 md"""
