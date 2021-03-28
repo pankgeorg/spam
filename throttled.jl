@@ -145,7 +145,7 @@ function throttle(f::Function, delay::Real)
 end
 
 # ╔═╡ 472f989d-8632-4986-bf26-d78a2c7b723a
-flush, fn = throttle(fx, 0.1)
+flush, fn = throttle(fx, 0.1) # νοπε
 
 # ╔═╡ 0ee72c37-862f-4750-9ff6-ab57f77bad5c
 md"""
