@@ -113,7 +113,7 @@ md"""
 
 # ╔═╡ 92dee53d-b932-4371-a307-6eece37fc798
 md"""
-## Test Thread-Safe Flux
+## Test Thread-Safe Flux 2
 """
 
 # ╔═╡ ae857899-7db3-4bd5-8280-e6128731d234
