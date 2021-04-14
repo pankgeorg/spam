@@ -1,10 +1,11 @@
 ### A Pluto.jl notebook ###
-# v0.14.0
+# v0.14.1
 
 using Markdown
 using InteractiveUtils
 
 # ╔═╡ bf71daae-3d34-11eb-1ca1-d9b018e99f18
+# ═execution_barrier
 "Create a throttled function, which calls the given function `f` at most once per given interval `max_delay`.
 
 It is _leading_ (`f` is invoked immediately) and _not trailing_ (calls during a cooldown period are ignored)."
@@ -88,7 +89,6 @@ ref[]=0
 # ╔═╡ a1c6af58-10d6-45f6-ba0b-b1a45a0d2c56
 fx(i=-1) = begin
 	ref[] = ref[]+1
-	sleep(0.05)
 end
 
 # ╔═╡ 315f67bc-f989-422f-ae60-b6e913c483f6
@@ -146,6 +146,59 @@ end
 
 # ╔═╡ 472f989d-8632-4986-bf26-d78a2c7b723a
 flush, fn = throttle(fx, 0.1)
+
+# ╔═╡ 0cb5ae68-dca4-411a-b13d-71c560f1f1ae
+function throttle_ts(f, timeout; leading=false, trailing=true)
+	tlock = ReentrantLock()
+	iscoolnow = true
+	later = false
+	
+	function flush()
+		lock(tlock)
+		try
+			later = false
+			f()
+		finally
+			unlock(tlock)
+		end
+	end
+
+	function throttled()
+		yield()
+		if iscoolnow
+			if leading
+				flush()
+			else
+				later = true
+			end
+			iscoolnow = false
+			@async try
+				while (sleep(timeout); later)
+					flush()
+				end
+			finally
+				iscoolnow = true
+			end
+		elseif trailing
+			later = true
+		end
+	end
+
+	return throttled, flush
+end
+
+# ╔═╡ a2bae643-ad0f-44f1-9e6b-b2ae027c70b0
+ts_fn, ts_flush = throttle_ts(fx, 0.1; leading = true, trailing=false)
+
+# ╔═╡ 72574513-5cf2-49bf-9a37-e34004501872
+begin
+	ref[] = 0
+	for i in 1:5_000_000
+		ts_fn()
+	end
+	ts_flush()
+	ref[]
+end
 
 # ╔═╡ 0ee72c37-862f-4750-9ff6-ab57f77bad5c
 md"""
@@ -215,8 +268,10 @@ md"""
 """
 
 # ╔═╡ 35c23dc6-2c79-4ac1-b085-97d7298c2b97
-"Throttled with thread safety"
-function throttle_ts(f, timeout; leading=true, trailing=false)
+"""Throttled with thread safety
+That means that the function is called every ` t = timeout + (call duration) s
+"""
+function throttle_ts_old(f, timeout; leading=true, trailing=false)
   tlock = ReentrantLock()
   cooldown = true
   later = nothing
@@ -271,19 +326,6 @@ function throttle_ts(f, timeout; leading=true, trailing=false)
   return throttled, flush
 end
 
-# ╔═╡ a2bae643-ad0f-44f1-9e6b-b2ae027c70b0
-ts_fn, ts_flush = throttle_ts(fx, 0.1; leading = true, trailing=false)
-
-# ╔═╡ 72574513-5cf2-49bf-9a37-e34004501872
-begin
-	ref[] = 0
-	for i in 1:5_000_000
-		ts_fn(i)
-	end
-	ts_flush()
-	ref[]
-end
-
 # ╔═╡ Cell order:
 # ╠═bf71daae-3d34-11eb-1ca1-d9b018e99f18
 # ╠═dde97532-3d34-11eb-030d-054b47086952
@@ -309,7 +351,8 @@ end
 # ╠═ae857899-7db3-4bd5-8280-e6128731d234
 # ╠═72574513-5cf2-49bf-9a37-e34004501872
 # ╟─ffd931d6-be9b-4460-9526-d61bd49b23fc
-# ╟─c84a44f0-2422-489e-b16f-d5dc691f3149
+# ╠═c84a44f0-2422-489e-b16f-d5dc691f3149
+# ╠═0cb5ae68-dca4-411a-b13d-71c560f1f1ae
 # ╟─0ee72c37-862f-4750-9ff6-ab57f77bad5c
 # ╟─9e461a14-0fc9-4d0f-bae3-5b8a1814ee44
 # ╟─721c9881-b2c6-4d57-a847-1d08dee6f26c
