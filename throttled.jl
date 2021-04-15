@@ -6,7 +6,7 @@ using InteractiveUtils
 
 # ╔═╡ bf71daae-3d34-11eb-1ca1-d9b018e99f18
 # ═execution_barrier
-"Create a throttled function, which calls the given function `f` at most once per given interval `max_delay`.
+"Create a throttled function, which calls the given function `f` at most once per given interval `max_delay   `.
    
 It is _leading_ (`f` is invoked immediately) and _not trailing_ (calls during a cooldown period are ignored)."
 function throttled(f::Function, max_delay::Real, initial_offset::Real=0)
