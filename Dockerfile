@@ -1,4 +1,4 @@
-FROM ghcr.io/juliapluto/pluto-slider-server@sha256:6a34c370fcb38e54d51582ac9b46ce02109ef7f1c6d96096580e8140652eb4e5
+FROM ghcr.io/juliapluto/pluto-slider-server@sha256:bc4fad96ff824b3f9b7b281282b18de19efbdbc3fa70895fa7d49f2440dca9f3
 
 EXPOSE 80
 
