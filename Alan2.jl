@@ -28,7 +28,7 @@ using the usual physics assumptions.  Would be great if the predictions could be
 
 # ╔═╡ a1d87592-8a51-11eb-3d9b-5bc0cfc2388e
 md"""
-# Snow avalanches off of solar panels v4
+# Snow avalanches off of solar panels v5
 """
 
 # ╔═╡ b1aa300e-8a52-11eb-0e7c-35ae3dfcd7cb
