@@ -28,7 +28,7 @@ using the usual physics assumptions.  Would be great if the predictions could be
 
 # ╔═╡ a1d87592-8a51-11eb-3d9b-5bc0cfc2388e
 md"""
-# Snow avalanches off of solar panels v8
+# Snow avalanches off of solar panels
 """
 
 # ╔═╡ b1aa300e-8a52-11eb-0e7c-35ae3dfcd7cb
@@ -38,7 +38,7 @@ html"""
 
 # ╔═╡ 1ab20db6-8a54-11eb-015b-bdb3c0e77fa2
 md"""
-###  Car Park, NY Suffolk County 8
+###  Car Park, NY Suffolk County
 """
 
 # ╔═╡ 041e7e2a-8a54-11eb-0225-a34742d2f35d
