@@ -62,7 +62,7 @@ return r, t, vₓ, vᵥ
 end
 
 # ╔═╡ 0ab2932c-8a57-11eb-2391-8d2dbee3d78b
-howfartime(d=15,h=30,θ=45) = howfar(d,h,θ)[1]
+howfartime(d=15,h=30,θ=45) = howfar(d, h, θ)[1]
 
 # ╔═╡ be66ff40-8a55-11eb-287e-4da0523312b9
 md"""
