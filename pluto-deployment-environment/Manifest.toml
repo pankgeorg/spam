@@ -123,9 +123,9 @@ uuid = "2e619515-83b5-522b-bb60-26c02a35a201"
 version = "2.2.7+6"
 
 [[ExproniconLite]]
-git-tree-sha1 = "7bdcbbc3797874c4f93a8c6a1a8f5f6887888889"
+git-tree-sha1 = "f6712ae2c1fe027cc7f9437ccc52401426289b89"
 uuid = "55351af7-c7e9-48d6-89ff-24e801d99491"
-version = "0.6.7"
+version = "0.6.8"
 
 [[FFMPEG]]
 deps = ["FFMPEG_jll", "x264_jll"]
@@ -504,14 +504,16 @@ uuid = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 version = "1.12.0"
 
 [[Pluto]]
-deps = ["Base64", "Configurations", "Dates", "Distributed", "FileWatching", "FuzzyCompletions", "HTTP", "InteractiveUtils", "Logging", "Markdown", "MsgPack", "Pkg", "REPL", "Sockets", "TableIOInterface", "Tables", "UUIDs"]
-path = "../../pluto/Pluto.jl"
+deps = ["Base64", "Configurations", "Dates", "Distributed", "FuzzyCompletions", "HTTP", "InteractiveUtils", "Logging", "Markdown", "MsgPack", "Pkg", "REPL", "Sockets", "TableIOInterface", "Tables", "UUIDs"]
+git-tree-sha1 = "39c1766f7f418c0263447d4c23566407515d02dd"
 uuid = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
 version = "0.14.3"
 
 [[PlutoSliderServer]]
-deps = ["Base64", "Configurations", "FromFile", "GitHubActions", "HTTP", "Logging", "Pkg", "Pluto", "SHA", "Sockets", "TOML", "UUIDs"]
-path = "../../PlutoSliderServer.jl"
+deps = ["Base64", "Configurations", "FileWatching", "FromFile", "GitHubActions", "HTTP", "Logging", "Pkg", "Pluto", "SHA", "Sockets", "TOML", "UUIDs"]
+git-tree-sha1 = "440485bab803ea6f4827ba860d12d9c2028f0f88"
+repo-rev = "webhook-v2"
+repo-url = "https://github.com/JuliaPluto/PlutoSliderServer.jl"
 uuid = "2fc8631c-6f24-4c5b-bca7-cbb509c42db4"
 version = "0.2.2"
 

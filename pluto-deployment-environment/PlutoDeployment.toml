@@ -13,6 +13,7 @@ output_dir="."
 start_dir="."
 exclude=[
     "index.jl",
+    "Alan3.jl",
     "Benjamin_Lungwitz_MarketRisk_time_series.jl",
     "Vikas Negi - Visualizing Samsung Health App Data.jl",
     "Nick Bochenski - The Backstage of Reactivity.jl",
