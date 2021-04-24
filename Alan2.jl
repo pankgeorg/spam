@@ -23,7 +23,7 @@ end
 # ╔═╡ 81369001-f2d3-441c-b28e-0650312a2d62
 md"""
 I couldn't quite find anything online that indicated how far snow can fall from a roof with solar panels, so I made this little demo based on freshman physics
-using the usual physics assumptions. Would be great if the predictions could be experimentally verified. (Prof. Alan Edelman, MIT, 2021) 1234132451
+using the usual physics assumptions. Would be great if the predictions could be experimentally verified. (Prof. Alan Edelman, MIT, 2021)
 """
 
 # ╔═╡ a1d87592-8a51-11eb-3d9b-5bc0cfc2388e
