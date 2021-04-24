@@ -1,0 +1,21 @@
+[Export]
+baked_state = false
+offer_binder = true
+binder_url = "https://mybinder.org/build/gh/fonsp/pluto-on-binder/8345c9238da98fe56f3d0ee20200314769a7d893/"
+slider_server_url = "http://localhost:2345/"
+ignore_cache = [
+    "index.jl",
+]
+output_dir="."
+
+# the following notebooks are disabled because they are not working well. of course i want to fix this, but i will only have time after the conference... sorry!
+[SliderServer]
+start_dir="."
+exclude=[
+    "index.jl",
+    "Benjamin_Lungwitz_MarketRisk_time_series.jl",
+    "Vikas Negi - Visualizing Samsung Health App Data.jl",
+    "Nick Bochenski - The Backstage of Reactivity.jl",
+    "David P. Sanders — Plotting inequalities using interval methods.pluto.jl",
+    "GiggleLiu-TropicalTensors.jl",
+]
